@@ -73,6 +73,11 @@ class Categories
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->title;
+    }
+
     public function getImage(): ?string
     {
         return $this->image;

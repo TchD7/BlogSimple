@@ -6,6 +6,7 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Stmt\Return_;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
@@ -75,7 +76,10 @@ class Users
 
         return $this;
     }
-
+    public function __toString()
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
     public function getFirstname(): ?string
     {
         return $this->firstname;
