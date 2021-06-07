@@ -11,6 +11,9 @@
 				<p class="date">
 					Ecrit le
 					{{ article.createdAt | date("d/m/Y") }}
+					a
+					{{ article.createdAt | date("H:i") }}
+
 				</p>
 				<img src="{{article.img}}" class="card-img-top" alt="{{article.titre}}">
 
@@ -18,7 +21,7 @@
 					<h5 class="card-title">{{article.titre}}</h5>
 
 
-					<a href="#" class="btn btn-primary">Lire...</a>
+					<a href=" {{ path('show', {'id':article.id})}} " class="btn btn-primary">Lire...</a>
 				</div>
 			</div>
 

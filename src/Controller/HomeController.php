@@ -22,6 +22,25 @@ class HomeController extends AbstractController
             'articles' => $articles,
         ]);
     }
+
+    /**
+     * @Route("/show/{id} ", name="show")
+     */
+
+    //je recupere un arcticle pour l'afficher
+    public function show($id): Response
+    {
+        $repo = $this->getDoctrine()->getRepository(Articles::class);
+        $article = $repo->find($id);
+
+        //si l'article n'existe pas rester sur la page d'accueil
+        if (!$article) {
+            return $this->redirectToRoute('home');
+        }
+        return $this->render("./show/index.html.twig", [
+            'articles' => $article,
+        ]);
+    }
     /* public function index(): Response
     {
         return $this->render("./home/index.html.twig");
