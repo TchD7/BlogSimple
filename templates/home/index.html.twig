@@ -4,4 +4,25 @@
 {% endblock %}
 {% block body %}
 	<h1>Bienvenue sur le Blog creer avec symfony</h1>
+	<div class="row">
+		{% for article in articles %}
+
+			<div class="card col-md-4" style="width: 18rem;">
+				<p class="date">
+					Ecrit le
+					{{ article.createdAt | date("d/m/Y") }}
+				</p>
+				<img src="{{article.img}}" class="card-img-top" alt="{{article.titre}}">
+
+				<div class="card-body">
+					<h5 class="card-title">{{article.titre}}</h5>
+
+
+					<a href="#" class="btn btn-primary">Lire...</a>
+				</div>
+			</div>
+
+
+		{% endfor %}
+	</div>
 {% endblock %}
